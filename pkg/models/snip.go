@@ -1,4 +1,4 @@
-package snip
+package models
 
 type SnipList map[string]Snip
 
