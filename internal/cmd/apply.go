@@ -11,7 +11,7 @@ func applyCmd() *cobra.Command {
 		Use:   "apply",
 		Short: "apply",
 		Long:  `apply`,
-		RunE: func(cmd *cobra.Command, args []string) {
+		RunE: func(cmd *cobra.Command, args []string) error {
 			fmt.Println("apply")
 
 			return nil

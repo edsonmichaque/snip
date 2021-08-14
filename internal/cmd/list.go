@@ -9,9 +9,9 @@ import (
 func listCmd() *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "list",
-		Short: "list",
-		Long:  `list`,
-		RunE: func(cmd *cobra.Command, args []string) {
+		Short: "list snippets",
+		Long:  `list snippets`,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			fmt.Println("list")
 
 			return nil

@@ -9,9 +9,9 @@ import (
 func initCmd() *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "init",
-		Short: "init",
-		Long:  `init`,
-		RunE: func(cmd *cobra.Command, args []string) {
+		Short: "init snippets",
+		Long:  `init snippets`,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			fmt.Println("init")
 
 			return nil

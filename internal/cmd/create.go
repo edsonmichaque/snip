@@ -8,11 +8,11 @@ import (
 
 func createCmd() *cobra.Command {
 	newCmd := &cobra.Command{
-		Use:   "list",
-		Short: "list",
-		Long:  `list`,
-		RunE: func(cmd *cobra.Command, args []string) {
-			fmt.Println("list")
+		Use:   "create",
+		Short: "create snippets",
+		Long:  `create snippets`,
+		RunE: func(cmd *cobra.Command, args []string) error {
+			fmt.Println("create")
 
 			return nil
 		},

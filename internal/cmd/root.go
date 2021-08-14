@@ -9,9 +9,9 @@ import (
 func New() *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "snip",
-		Short: "snip",
-		Long:  `snip`,
-		RunE: func(cmd *cobra.Command, args []string) {
+		Short: "snippets manager",
+		Long:  `snippets manager`,
+		RunE: func(cmd *cobra.Command, args []string) error {
 			fmt.Println("snip")
 
 			return nil
