@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	commands "github.com/edsonmichaque/snip/internal/commands/snip"
+	cmd "github.com/edsonmichaque/snip/internal/cmd"
 	"github.com/spf13/cobra"
 )
 
@@ -14,13 +14,17 @@ type app struct {
 
 func New() *app {
 	return &app{
-		command: commands.Command,
+		command: cmd.New(),
 	}
 }
 
 func (a *app) Run() {
 	if err := a.command.Execute(); err != nil {
 		fmt.Fprint(os.Stderr, err)
-		os.Exit(1)
+		if e, ok := err.(*CommandError); ok {
+            os.exit(e.Code)
+        }
+
+        os.Exit(1)
 	}
 }
