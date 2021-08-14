@@ -22,9 +22,9 @@ func (a *app) Run() {
 	if err := a.command.Execute(); err != nil {
 		fmt.Fprint(os.Stderr, err)
 		if e, ok := err.(*CommandError); ok {
-            os.exit(e.Code)
-        }
+			os.exit(e.Code)
+		}
 
-        os.Exit(1)
+		os.Exit(1)
 	}
 }

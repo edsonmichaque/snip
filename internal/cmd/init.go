@@ -7,16 +7,16 @@ import (
 )
 
 func initCmd() *cobra.Command {
-    newCmd := &cobra.Command{
-        Use:   "init",
-        Short: "init",
-        Long:  `init`,
-        RunE: func(cmd *cobra.Command, args []string) {
-            fmt.Println("init")
-            
-            return nil
-        },
-    }
+	newCmd := &cobra.Command{
+		Use:   "init",
+		Short: "init",
+		Long:  `init`,
+		RunE: func(cmd *cobra.Command, args []string) {
+			fmt.Println("init")
 
-    return newCmd
+			return nil
+		},
+	}
+
+	return newCmd
 }

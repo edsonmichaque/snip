@@ -7,16 +7,16 @@ import (
 )
 
 func createCmd() *cobra.Command {
-    newCmd := &cobra.Command{
-        Use:   "list",
-        Short: "list",
-        Long:  `list`,
-        RunE: func(cmd *cobra.Command, args []string) {
-            fmt.Println("list")
-            
-            return nil
-        },
-    }
+	newCmd := &cobra.Command{
+		Use:   "list",
+		Short: "list",
+		Long:  `list`,
+		RunE: func(cmd *cobra.Command, args []string) {
+			fmt.Println("list")
 
-    return newCmd
+			return nil
+		},
+	}
+
+	return newCmd
 }

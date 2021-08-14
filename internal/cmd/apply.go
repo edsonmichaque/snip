@@ -1,4 +1,4 @@
-ackage cmd
+package cmd
 
 import (
 	"fmt"
@@ -7,16 +7,16 @@ import (
 )
 
 func applyCmd() *cobra.Command {
-    newCmd := &cobra.Command{
-        Use:   "apply",
-        Short: "apply",
-        Long:  `apply`,
-        RunE: func(cmd *cobra.Command, args []string) {
-            fmt.Println("apply")
-            
-            return nil
-        },
-    }
+	newCmd := &cobra.Command{
+		Use:   "apply",
+		Short: "apply",
+		Long:  `apply`,
+		RunE: func(cmd *cobra.Command, args []string) {
+			fmt.Println("apply")
 
-    return newCmd
+			return nil
+		},
+	}
+
+	return newCmd
 }
