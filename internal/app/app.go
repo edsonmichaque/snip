@@ -6,9 +6,7 @@ import (
 
 	cmd "github.com/edsonmichaque/snip/internal/cmd"
 	errors "github.com/edsonmichaque/snip/pkg/errors"
-    cobra "github.com/spf13/cobra"
-
-
+	cobra "github.com/spf13/cobra"
 )
 
 type app struct {
