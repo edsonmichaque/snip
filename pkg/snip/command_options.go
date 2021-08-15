@@ -21,6 +21,7 @@ type CommandOptions struct {
 	SnippetFile        string
 	SnippetScript      string
 	SnippetDescription string
+	DataDir            string
 }
 
 func NewCommandOptions() *CommandOptions {

@@ -18,7 +18,7 @@ package cmd
 
 import (
 	"errors"
-	_ "fmt"
+	"fmt"
 	"os"
 	"path"
 
@@ -31,22 +31,36 @@ func initCmd() *cobra.Command {
 		Short: "init snippets",
 		Long:  `init snippets`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			homeDir, err := os.UserHomeDir()
+			var dataDir string
 
-			if err != nil {
-				return errors.New("Cannot open home dir")
+			if options.DataDir != "" {
+				dataDir = options.DataDir
+			} else {
+				homeDir, err := os.UserHomeDir()
+				if err != nil {
+					return errors.New("Cannot open home dir")
+				}
+
+				dataDir = path.Join(homeDir, ".local", ".share", "snip")
 			}
 
-			fullPath := path.Join(homeDir, ".local", "share", "snip")
-			if _, err = os.Stat(fullPath); os.IsNotExist(err) {
-				if err = os.MkdirAll(fullPath, 0700); err != nil {
-					return errors.New("Cannot create .local/share/snip directory")
+			_, err := os.Stat(dataDir)
+			if err != nil {
+				if os.IsNotExist(err) {
+					err = os.MkdirAll(dataDir, 0700)
+
+					if err != nil {
+						return errors.New("Cannot create .local/share/snip directory")
+					}
 				}
+			} else {
+				fmt.Printf("%s directory already exists\n", dataDir)
 			}
 
 			return nil
 		},
 	}
 
+	newCmd.Flags().StringVarP(&options.DataDir, "data-dir", "d", "", "data directory")
 	return newCmd
 }

@@ -38,6 +38,7 @@ func New() *app {
 func (a *app) Run() {
 	if err := a.command.Execute(); err != nil {
 		fmt.Fprint(os.Stderr, err)
+
 		if e, ok := err.(*snip.CommandError); ok {
 			os.Exit(e.Code)
 		}
