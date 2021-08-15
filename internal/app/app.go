@@ -26,7 +26,7 @@ import (
 )
 
 var options = &snip.CommandOptions{}
-const VERSION = "0.1.0-alpha.2"
+const VERSION = "0.1.0-alpha.3"
 
 type app struct {
 	command *cobra.Command
