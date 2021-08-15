@@ -35,9 +35,9 @@ func createCmd(options *snip.CommandOptions) *cobra.Command {
 		},
 	}
 
-	newCmd.Flags().StringVarP(&options.SnippetFile, "from-file", "f", "", "file location")
-	newCmd.Flags().StringVarP(&options.SnippetScript, "script", "s", "", "snippet script")
-	newCmd.Flags().StringVarP(&options.SnippetDescription, "description", "d", "", "snippet script")
+	newCmd.Flags().StringVarP(&options.FromFile, "from-file", "f", "", "file location")
+	newCmd.Flags().StringVarP(&options.Source, "source", "s", "", "snippet source")
+	newCmd.Flags().StringVarP(&options.Description, "description", "d", "", "snippet description")
 
 	return newCmd
 }

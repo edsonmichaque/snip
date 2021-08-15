@@ -17,11 +17,14 @@
 package snip
 
 type CommandOptions struct {
-	SnippetName        string
-	SnippetFile        string
-	SnippetScript      string
-	SnippetDescription string
-	DataDir            string
+	FromFile    string
+	Name        string
+	Source      string
+	Description string
+	DataDir     string
+	Force       bool
+	Output      string
+	Filter      string
 }
 
 func NewCommandOptions() *CommandOptions {

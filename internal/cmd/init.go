@@ -73,5 +73,6 @@ func initCmd(options *snip.CommandOptions) *cobra.Command {
 	}
 
 	newCmd.Flags().StringVarP(&options.DataDir, "data-dir", "d", "", "data directory")
+	newCmd.Flags().StringVarP(&options.FromFile, "from-file", "f", "", "data directory")
 	return newCmd
 }

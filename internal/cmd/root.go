@@ -36,7 +36,6 @@ func New(options *snip.CommandOptions) *cobra.Command {
 	}
 
 	newCmd.AddCommand(createCmd(options))
-	newCmd.AddCommand(applyCmd(options))
 	newCmd.AddCommand(listCmd(options))
 	newCmd.AddCommand(initCmd(options))
 	newCmd.AddCommand(editCmd(options))
