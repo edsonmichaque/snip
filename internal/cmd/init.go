@@ -21,9 +21,27 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"runtime"
 
 	"github.com/spf13/cobra"
 )
+
+func DataDir() (*string, error) {
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		return nil, errors.New("Could not detect home dir for user")
+	}
+
+	var dataDir string
+
+	if runtime.GOOS == "windows" {
+		dataDir = path.Join(homeDir, "AppData", "Local", "Snip", "Snip")
+	} else {
+		dataDir = path.Join(homeDir, ".local", "share", "snip")
+	}
+
+	return &dataDir, nil
+}
 
 func initCmd() *cobra.Command {
 	newCmd := &cobra.Command{
@@ -31,30 +49,22 @@ func initCmd() *cobra.Command {
 		Short: "init snippets",
 		Long:  `init snippets`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			var dataDir string
-
-			if options.DataDir != "" {
-				dataDir = options.DataDir
-			} else {
-				homeDir, err := os.UserHomeDir()
-				if err != nil {
-					return errors.New("Cannot open home dir")
-				}
-
-				dataDir = path.Join(homeDir, ".local", ".share", "snip")
+			dataDir, err := DataDir()
+			if err != nil {
+				return err
 			}
 
-			_, err := os.Stat(dataDir)
+			_, err = os.Stat(*dataDir)
 			if err != nil {
 				if os.IsNotExist(err) {
-					err = os.MkdirAll(dataDir, 0700)
+					err = os.MkdirAll(*dataDir, 0700)
 
 					if err != nil {
 						return errors.New("Cannot create .local/share/snip directory")
 					}
 				}
 			} else {
-				fmt.Printf("%s directory already exists\n", dataDir)
+				fmt.Printf("%s directory already exists\n", *dataDir)
 			}
 
 			return nil
