@@ -14,25 +14,13 @@
    limitations under the License.
 */
 
-package cmd
+package snip
 
-import (
-	"fmt"
+type CommandError struct {
+	Code int
+	Err  error
+}
 
-	"github.com/spf13/cobra"
-)
-
-func editCmd() *cobra.Command {
-	newCmd := &cobra.Command{
-		Use:   "edit",
-		Short: "edit snippets",
-		Long:  `edit snippets`,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			fmt.Println("edit")
-
-			return nil
-		},
-	}
-
-	return newCmd
+func (c *CommandError) Error() string {
+	return c.Err.Error()
 }

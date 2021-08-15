@@ -22,10 +22,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var fromFile string
-var script string
-var description string
-
 func createCmd() *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "create",
@@ -38,9 +34,9 @@ func createCmd() *cobra.Command {
 		},
 	}
 
-	newCmd.Flags().StringVarP(&fromFile, "from-file", "f", "", "file location")
-	newCmd.Flags().StringVarP(&script, "script", "s", "", "snippet script")
-	newCmd.Flags().StringVarP(&description, "description", "d", "", "snippet script")
+	newCmd.Flags().StringVarP(&options.SnippetFile, "from-file", "f", "", "file location")
+	newCmd.Flags().StringVarP(&options.SnippetScript, "script", "s", "", "snippet script")
+	newCmd.Flags().StringVarP(&options.SnippetDescription, "description", "d", "", "snippet script")
 
 	return newCmd
 }

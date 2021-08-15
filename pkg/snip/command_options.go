@@ -14,13 +14,15 @@
    limitations under the License.
 */
 
-package errors
+package snip
 
-type CommandError struct {
-	Code int
-	Err  error
+type CommandOptions struct {
+	SnippetName        string
+	SnippetFile        string
+	SnippetScript      string
+	SnippetDescription string
 }
 
-func (c *CommandError) Error() string {
-	return c.Err.Error()
+func NewCommandOptions() *CommandOption {
+	return &CommandOptions{}
 }

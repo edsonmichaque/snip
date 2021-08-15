@@ -20,7 +20,10 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+    "github.com/edsonmichaque/snip/pkg/snip"
 )
+
+var options = &snip.CommandOptions{}
 
 func New() *cobra.Command {
 	newCmd := &cobra.Command{
@@ -38,9 +41,9 @@ func New() *cobra.Command {
 	newCmd.AddCommand(applyCmd())
 	newCmd.AddCommand(listCmd())
 	newCmd.AddCommand(initCmd())
-    newCmd.AddCommand(editCmd())
-    newCmd.AddCommand(searchCmd())
-    newCmd.AddCommand(deleteCmd())
-	
-    return newCmd
+	newCmd.AddCommand(editCmd())
+	newCmd.AddCommand(searchCmd())
+	newCmd.AddCommand(deleteCmd())
+
+	return newCmd
 }

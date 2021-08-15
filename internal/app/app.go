@@ -21,7 +21,7 @@ import (
 	"os"
 
 	cmd "github.com/edsonmichaque/snip/internal/cmd"
-	errors "github.com/edsonmichaque/snip/pkg/errors"
+	errors "github.com/edsonmichaque/snip/pkg/snip"
 	cobra "github.com/spf13/cobra"
 )
 
@@ -38,7 +38,7 @@ func New() *app {
 func (a *app) Run() {
 	if err := a.command.Execute(); err != nil {
 		fmt.Fprint(os.Stderr, err)
-		if e, ok := err.(*errors.CommandError); ok {
+		if e, ok := err.(*snip.CommandError); ok {
 			os.Exit(e.Code)
 		}
 

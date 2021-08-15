@@ -27,7 +27,7 @@ type Snip struct {
 	Labels      map[string]string `json:"labels,omitempty" yaml:"labels,omitempty"`
 }
 
-func New(options ...SnipOption) *Snip {
+func NewSnip(options ...SnipOption) *Snip {
 	newSnip := &Snip{}
 
 	for _, option := range options {
@@ -37,7 +37,7 @@ func New(options ...SnipOption) *Snip {
 	return newSnip
 }
 
-func NewList() map[string]*Snip {
+func NewSnipList() map[string]*Snip {
 	return map[string]*Snip{}
 }
 
