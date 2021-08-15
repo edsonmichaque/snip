@@ -1,13 +1,13 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "title": "Snip schema",
+    "title": "Snip",
     "type": "object",
     "patternProperties": {
         "^[a-zA-Z][a-zA-Z0-9-/]$": {
             "title": "",
             "type": "object",
             "properties": {
-                "title": {
+                "name": {
                     "title": "",
                     "type": "string"
                 },
@@ -21,16 +21,17 @@
                 },
                 "labels": {
                     "title": "",
-                    "type": "array",
-                    "items": [
-                        {
-                            "type": "string"
-                        }
-                    ]
+                    "type": "object",
+                    "patternProperties": {
+                      "^[a-zA-Z][a-zA-Z0-9-/]$": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
                 }
             },
             "required": [
-                "title",
+                "name",
                 "script"
             ],
             "additionalProperties": false
