@@ -23,9 +23,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func New(options *snip.CommandOptions) *cobra.Command {
+func New(version string, options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "snip",
+        Version: version,
 		Short: "snippets manager",
 		Long:  `snippets manager`,
 		RunE: func(cmd *cobra.Command, args []string) error {

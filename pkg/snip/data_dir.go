@@ -14,38 +14,28 @@
    limitations under the License.
 */
 
-package app
+package snip
 
 import (
-	"fmt"
-	"os"
-
-	cmd "github.com/edsonmichaque/snip/internal/cmd"
-	"github.com/edsonmichaque/snip/pkg/snip"
-	cobra "github.com/spf13/cobra"
+    "errors"
+    "runtime"
+    "path"
+    "os"
 )
 
-var options = &snip.CommandOptions{}
-const VERSION = "0.1.0-alpha.2"
-
-type app struct {
-	command *cobra.Command
-}
-
-func New() *app {
-	return &app{
-		command: cmd.New(VERSION, options),
+func DataDir() (*string, error) {
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		return nil, errors.New("Could not detect home dir for user")
 	}
-}
 
-func (a *app) Run() {
-	if err := a.command.Execute(); err != nil {
-		fmt.Fprint(os.Stderr, err)
+	var dataDir string
 
-		if e, ok := err.(*snip.CommandError); ok {
-			os.Exit(e.Code)
-		}
-
-		os.Exit(1)
+	if runtime.GOOS == "windows" {
+		dataDir = path.Join(homeDir, "AppData", "Local", "Snip", "Snip")
+	} else {
+		dataDir = path.Join(homeDir, ".local", "share", "snip")
 	}
+
+	return &dataDir, nil
 }

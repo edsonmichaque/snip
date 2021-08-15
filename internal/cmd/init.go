@@ -20,29 +20,10 @@ import (
 	"errors"
 	"fmt"
 	"os"
-	"path"
-	"runtime"
 
 	"github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
-
-func DataDir() (*string, error) {
-	homeDir, err := os.UserHomeDir()
-	if err != nil {
-		return nil, errors.New("Could not detect home dir for user")
-	}
-
-	var dataDir string
-
-	if runtime.GOOS == "windows" {
-		dataDir = path.Join(homeDir, "AppData", "Local", "Snip", "Snip")
-	} else {
-		dataDir = path.Join(homeDir, ".local", "share", "snip")
-	}
-
-	return &dataDir, nil
-}
 
 func initCmd(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
@@ -50,7 +31,7 @@ func initCmd(options *snip.CommandOptions) *cobra.Command {
 		Short: "init snippets",
 		Long:  `init snippets`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			dataDir, err := DataDir()
+			dataDir, err := snip.DataDir()
 			if err != nil {
 				return err
 			}
