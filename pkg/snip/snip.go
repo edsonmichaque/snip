@@ -14,20 +14,20 @@
    limitations under the License.
 */
 
-package models
+package snip
 
 type SnipList map[string]Snip
 
 type SnipOption func(*Snip)
 
 type Snip struct {
-	Title       string   `json:"title" yaml:"title"`
-	Description string   `json:"description" yaml:"description"`
-	Script      string   `json:"script" yaml:"script"`
-	Labels      []string `json:"labels,omitempty" yaml:"labels,omitempty"`
+	Title       string            `json:"title" yaml:"title"`
+	Description string            `json:"description" yaml:"description"`
+	Script      string            `json:"script" yaml:"script"`
+	Labels      map[string]string `json:"labels,omitempty" yaml:"labels,omitempty"`
 }
 
-func NewSnip(options ...SnipOption) *Snip {
+func New(options ...SnipOption) *Snip {
 	newSnip := &Snip{}
 
 	for _, option := range options {
@@ -37,7 +37,7 @@ func NewSnip(options ...SnipOption) *Snip {
 	return newSnip
 }
 
-func NewSnipList() map[string]*Snip {
+func NewList() map[string]*Snip {
 	return map[string]*Snip{}
 }
 
@@ -56,5 +56,11 @@ func WithDescription(description string) SnipOption {
 func WithScript(script string) SnipOption {
 	return func(s *Snip) {
 		s.Script = script
+	}
+}
+
+func WithLabels(labels map[string]string) SnipOption {
+	return func(s *snip) {
+		s.Labels = labels
 	}
 }
