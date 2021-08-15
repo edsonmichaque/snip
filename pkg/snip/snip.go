@@ -60,7 +60,7 @@ func WithScript(script string) SnipOption {
 }
 
 func WithLabels(labels map[string]string) SnipOption {
-	return func(s *snip) {
+	return func(s *Snip) {
 		s.Labels = labels
 	}
 }

@@ -21,7 +21,7 @@ import (
 	"os"
 
 	cmd "github.com/edsonmichaque/snip/internal/cmd"
-	errors "github.com/edsonmichaque/snip/pkg/snip"
+	"github.com/edsonmichaque/snip/pkg/snip"
 	cobra "github.com/spf13/cobra"
 )
 

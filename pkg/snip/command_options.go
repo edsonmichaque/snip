@@ -23,6 +23,6 @@ type CommandOptions struct {
 	SnippetDescription string
 }
 
-func NewCommandOptions() *CommandOption {
+func NewCommandOptions() *CommandOptions {
 	return &CommandOptions{}
 }
