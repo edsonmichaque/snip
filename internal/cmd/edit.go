@@ -22,25 +22,21 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func New() *cobra.Command {
+func editCmd() *cobra.Command {
 	newCmd := &cobra.Command{
-		Use:   "snip",
-		Short: "snippets manager",
-		Long:  `snippets manager`,
+		Use:   "edit",
+		Short: "edit snippets",
+		Long:  `edit snippets`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			fmt.Println("snip")
+			fmt.Println("edit")
 
 			return nil
 		},
 	}
 
-	newCmd.AddCommand(createCmd())
-	newCmd.AddCommand(applyCmd())
-	newCmd.AddCommand(listCmd())
-	newCmd.AddCommand(initCmd())
-    newCmd.AddCommand(editCmd())
-    newCmd.AddCommand(searchCmd())
-    newCmd.AddCommand(deleteCmd())
-	
-    return newCmd
+	newCmd.Flags().StringVarP(&fromFile, "from-file", "f", "", "file location")
+	newCmd.Flags().StringVarP(&script, "script", "s", "", "snippet script")
+	newCmd.Flags().StringVarP(&description, "description", "d", "", "snippet script")
+
+	return newCmd
 }
