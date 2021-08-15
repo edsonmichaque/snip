@@ -19,10 +19,11 @@ package cmd
 import (
 	"fmt"
 
+    "github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
 
-func searchCmd() *cobra.Command {
+func searchCmd(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "search",
 		Short: "search snippets",

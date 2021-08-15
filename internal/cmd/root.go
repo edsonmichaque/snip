@@ -18,14 +18,12 @@ package cmd
 
 import (
 	"fmt"
-
-	"github.com/edsonmichaque/snip/pkg/snip"
+    
+    "github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
 
-var options = &snip.CommandOptions{}
-
-func New() *cobra.Command {
+func New(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "snip",
 		Short: "snippets manager",
@@ -37,13 +35,13 @@ func New() *cobra.Command {
 		},
 	}
 
-	newCmd.AddCommand(createCmd())
-	newCmd.AddCommand(applyCmd())
-	newCmd.AddCommand(listCmd())
-	newCmd.AddCommand(initCmd())
-	newCmd.AddCommand(editCmd())
-	newCmd.AddCommand(searchCmd())
-	newCmd.AddCommand(deleteCmd())
+	newCmd.AddCommand(createCmd(options))
+	newCmd.AddCommand(applyCmd(options))
+	newCmd.AddCommand(listCmd(options))
+	newCmd.AddCommand(initCmd(options))
+	newCmd.AddCommand(editCmd(options))
+	newCmd.AddCommand(searchCmd(options))
+	newCmd.AddCommand(deleteCmd(options))
 
 	return newCmd
 }

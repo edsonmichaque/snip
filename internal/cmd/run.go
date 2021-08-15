@@ -19,10 +19,11 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/spf13/cobra"
+	"github.com/edsonmichaque/snip/pkg/snip"
+    "github.com/spf13/cobra"
 )
 
-func runCmd() *cobra.Command {
+func runCmd(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "run",
 		Short: "run snippets",

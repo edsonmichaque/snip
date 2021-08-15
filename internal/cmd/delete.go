@@ -18,11 +18,12 @@ package cmd
 
 import (
 	"fmt"
-
+    
+    "github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
 
-func deleteCmd() *cobra.Command {
+func deleteCmd(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "delete",
 		Short: "delete snippets",

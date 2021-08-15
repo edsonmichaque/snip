@@ -21,9 +21,11 @@ import (
 	"os"
 
 	cmd "github.com/edsonmichaque/snip/internal/cmd"
-	"github.com/edsonmichaque/snip/pkg/snip"
+    "github.com/edsonmichaque/snip/pkg/snip"
 	cobra "github.com/spf13/cobra"
 )
+
+var options = &snip.CommandOptions{}
 
 type app struct {
 	command *cobra.Command
@@ -31,7 +33,7 @@ type app struct {
 
 func New() *app {
 	return &app{
-		command: cmd.New(),
+		command: cmd.New(options),
 	}
 }
 

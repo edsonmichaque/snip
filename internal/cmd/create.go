@@ -18,11 +18,12 @@ package cmd
 
 import (
 	"fmt"
-
+    
+    "github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
 
-func createCmd() *cobra.Command {
+func createCmd(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "create",
 		Short: "create snippets",

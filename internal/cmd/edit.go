@@ -19,10 +19,11 @@ package cmd
 import (
 	"fmt"
 
+    "github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
 
-func editCmd() *cobra.Command {
+func editCmd(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "edit",
 		Short: "edit snippets",

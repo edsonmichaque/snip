@@ -19,10 +19,11 @@ package cmd
 import (
 	"fmt"
 
+    "github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
 
-func listCmd() *cobra.Command {
+func listCmd(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "list",
 		Short: "list snippets",
