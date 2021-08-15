@@ -19,8 +19,8 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
-    "github.com/edsonmichaque/snip/pkg/snip"
 )
 
 var options = &snip.CommandOptions{}

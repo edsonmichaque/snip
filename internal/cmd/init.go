@@ -17,10 +17,10 @@
 package cmd
 
 import (
+	"errors"
 	_ "fmt"
-    "path"
-    "os"
-    "errors"
+	"os"
+	"path"
 
 	"github.com/spf13/cobra"
 )
@@ -31,18 +31,18 @@ func initCmd() *cobra.Command {
 		Short: "init snippets",
 		Long:  `init snippets`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-		    homeDir, err := os.UserHomeDir()
-            
-            if err != nil {
-                return errors.New("Cannot open home dir")
-            }
-            
-            fullPath := path.Join(homeDir, ".local", "share", "snip")
-            if _, err = os.Stat(fullPath); os.IsNotExist(err) {
-                if err = os.MkdirAll(fullPath, 0700); err != nil {
-                    return errors.New("Cannot create .local/share/snip directory")
-                }
-            }
+			homeDir, err := os.UserHomeDir()
+
+			if err != nil {
+				return errors.New("Cannot open home dir")
+			}
+
+			fullPath := path.Join(homeDir, ".local", "share", "snip")
+			if _, err = os.Stat(fullPath); os.IsNotExist(err) {
+				if err = os.MkdirAll(fullPath, 0700); err != nil {
+					return errors.New("Cannot create .local/share/snip directory")
+				}
+			}
 
 			return nil
 		},
