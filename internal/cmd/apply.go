@@ -19,7 +19,7 @@ package cmd
 import (
 	"fmt"
 
-    "github.com/edsonmichaque/snip/pkg/snip"
+	"github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
 

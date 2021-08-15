@@ -23,7 +23,7 @@ import (
 	"path"
 	"runtime"
 
-    "github.com/edsonmichaque/snip/pkg/snip"
+	"github.com/edsonmichaque/snip/pkg/snip"
 	"github.com/spf13/cobra"
 )
 
@@ -50,7 +50,7 @@ func initCmd(options *snip.CommandOptions) *cobra.Command {
 		Short: "init snippets",
 		Long:  `init snippets`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-            dataDir, err := DataDir()
+			dataDir, err := DataDir()
 			if err != nil {
 				return err
 			}

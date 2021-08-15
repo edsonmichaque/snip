@@ -20,7 +20,7 @@ import (
 	"fmt"
 
 	"github.com/edsonmichaque/snip/pkg/snip"
-    "github.com/spf13/cobra"
+	"github.com/spf13/cobra"
 )
 
 func runCmd(options *snip.CommandOptions) *cobra.Command {
