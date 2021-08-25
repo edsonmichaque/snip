@@ -23,7 +23,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func runCmd(options *snip.CommandOptions) *cobra.Command {
+func CmdRun(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "run",
 		Short: "run snippets",

@@ -17,13 +17,13 @@
 package snip
 
 import (
-    "errors"
-    "runtime"
-    "path"
-    "os"
+	"errors"
+	"os"
+	"path"
+	"runtime"
 )
 
-func DataDir() (*string, error) {
+func SnipDataDir() (*string, error) {
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
 		return nil, errors.New("Could not detect home dir for user")

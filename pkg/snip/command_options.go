@@ -21,7 +21,7 @@ type CommandOptions struct {
 	Name        string
 	Source      string
 	Description string
-	DataDir     string
+	SnipDataDir string
 	Force       bool
 	Output      string
 	Filter      string

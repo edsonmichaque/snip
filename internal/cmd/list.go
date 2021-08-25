@@ -23,7 +23,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func listCmd(options *snip.CommandOptions) *cobra.Command {
+func CmdList(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "list",
 		Short: "list snippets",

@@ -23,7 +23,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func deleteCmd(options *snip.CommandOptions) *cobra.Command {
+func CmdDelete(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "delete",
 		Short: "delete snippets",

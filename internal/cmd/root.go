@@ -25,10 +25,10 @@ import (
 
 func New(version string, options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
-		Use:   "snip",
-        Version: version,
-		Short: "snippets manager",
-		Long:  `snippets manager`,
+		Use:     "snip",
+		Version: version,
+		Short:   "snippets manager",
+		Long:    `snippets manager`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			fmt.Println("snip")
 
@@ -36,12 +36,12 @@ func New(version string, options *snip.CommandOptions) *cobra.Command {
 		},
 	}
 
-	newCmd.AddCommand(createCmd(options))
-	newCmd.AddCommand(listCmd(options))
-	newCmd.AddCommand(initCmd(options))
-	newCmd.AddCommand(editCmd(options))
-	newCmd.AddCommand(searchCmd(options))
-	newCmd.AddCommand(deleteCmd(options))
+	newCmd.AddCommand(CmdCreate(options))
+	newCmd.AddCommand(CmdList(options))
+	newCmd.AddCommand(CmdInit(options))
+	newCmd.AddCommand(CmdEdit(options))
+	newCmd.AddCommand(CmdSearch(options))
+	newCmd.AddCommand(CmdDelete(options))
 
 	return newCmd
 }

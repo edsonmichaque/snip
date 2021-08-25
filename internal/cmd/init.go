@@ -25,13 +25,13 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func initCmd(options *snip.CommandOptions) *cobra.Command {
+func CmdInit(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "init",
 		Short: "init snippets",
 		Long:  `init snippets`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			dataDir, err := snip.DataDir()
+			dataDir, err := snip.SnipDataDir()
 			if err != nil {
 				return err
 			}
@@ -53,7 +53,7 @@ func initCmd(options *snip.CommandOptions) *cobra.Command {
 		},
 	}
 
-	newCmd.Flags().StringVarP(&options.DataDir, "data-dir", "d", "", "data directory")
+	newCmd.Flags().StringVarP(&options.SnipDataDir, "data-dir", "d", "", "data directory")
 
 	return newCmd
 }

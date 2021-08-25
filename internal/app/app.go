@@ -26,6 +26,7 @@ import (
 )
 
 var options = &snip.CommandOptions{}
+
 const VERSION = "0.1.0-alpha.4"
 
 type app struct {

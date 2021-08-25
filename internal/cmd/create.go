@@ -23,7 +23,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func createCmd(options *snip.CommandOptions) *cobra.Command {
+func CmdCreate(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "create",
 		Short: "create snippets",

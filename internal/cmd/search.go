@@ -23,7 +23,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func searchCmd(options *snip.CommandOptions) *cobra.Command {
+func CmdSearch(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "search",
 		Short: "search snippets",

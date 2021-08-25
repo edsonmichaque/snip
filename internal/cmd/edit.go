@@ -23,7 +23,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func editCmd(options *snip.CommandOptions) *cobra.Command {
+func CmdEdit(options *snip.CommandOptions) *cobra.Command {
 	newCmd := &cobra.Command{
 		Use:   "edit",
 		Short: "edit snippets",
